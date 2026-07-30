@@ -13,19 +13,21 @@
   `PRIVACY_POLICY.md`
 - **Verified build:** `npm run check` (TypeScript) and `npm run build` (Vite)
   both pass cleanly
+- **Screenshots:** 5 phone screenshots in `client/public/screenshots/`, wired
+  into `manifest.json`'s `screenshots` field
+- **Deployed:** live at https://hadal-speak.vercel.app/ (Vercel, auto-deploys
+  from `main` on every push; `vercel.json` handles SPA routing)
 
 ## What you still need to do
 
-1. **Deploy the static site** to get an HTTPS URL (Vercel, Netlify, Cloudflare
-   Pages, Firebase Hosting, or GitHub Pages all work — see
-   `GOOGLE_PLAY_DEPLOYMENT_GUIDE.md` Step 2).
-2. **Package it as an Android app** with PWABuilder or Bubblewrap (Step 3).
-3. **Add `.well-known/assetlinks.json`** with your app's signing fingerprint so
+1. **Package it as an Android app** with PWABuilder or Bubblewrap (Step 3) —
+   point it at `https://hadal-speak.vercel.app/`.
+2. **Add `.well-known/assetlinks.json`** with your app's signing fingerprint so
    the installed app opens without a browser address bar (Step 4).
-4. **Take screenshots and a 1024x500 feature graphic** of the running app for the
-   Play Store listing — not included in this repo since they need to show a real
-   device frame.
-5. **Submit to Google Play Console** (Step 5) — the Data Safety form should
+3. **Create a 1024x500 feature graphic** for the Play Store listing (separate
+   from the in-app screenshots — a promotional banner image; not yet in this
+   repo).
+4. **Submit to Google Play Console** (Step 5) — the Data Safety form should
    declare "no data collected or shared," since there is no server.
 
 ## Key facts for the Play Store listing
