@@ -157,7 +157,10 @@ verify with Google's
   ```
 - **App icon:** `client/public/icon-512.png`
 - **Feature graphic:** create a 1024x500 promotional image (not included in this repo)
-- **Screenshots:** take 2-8 screenshots of the running app on a phone
+- **Screenshots:** 5 phone screenshots are already in `client/public/screenshots/`
+  (also wired into `manifest.json`'s `screenshots` field for a richer PWA install
+  prompt) — download them from the deployed site and upload to Play Console, or
+  take fresh ones if you want to show different content
 
 ### Upload the release
 1. Release → Production → "Create new release"
