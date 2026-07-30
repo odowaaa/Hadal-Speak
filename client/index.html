@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Hadal English - Speak & Learn</title>
+
+    <!-- PWA Meta Tags -->
+    <meta name="description" content="Learn English through practical daily-life lessons designed specifically for Somali speakers. Three progressive levels with bilingual content, interactive quizzes, and voice practice." />
+    <meta name="keywords" content="English learning, Somali English, language learning, ESL, pronunciation, bilingual education, adult learning" />
+    <meta name="author" content="Abdinur Mohamed Odowa" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+
+    <!-- Theme Colors (light + dark) -->
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2563eb" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0f172a" />
+    <meta name="msapplication-TileColor" content="#2563eb" />
+
+    <!-- Apple Touch Icons -->
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Hadal English" />
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Hadal English - Speak & Learn" />
+    <meta property="og:description" content="Learn English through practical daily-life lessons designed specifically for Somali speakers." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/icon-512.png" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(() => {
+            // Offline support is a progressive enhancement; ignore registration failures.
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
