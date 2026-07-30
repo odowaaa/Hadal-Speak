@@ -5,6 +5,7 @@
   "description": "Learn English through practical daily-life lessons designed specifically for Somali speakers. Three progressive levels with bilingual content, interactive quizzes, and voice practice.",
   "start_url": "/?source=pwa",
   "display": "standalone",
+  "display_override": ["standalone", "minimal-ui", "browser"],
   "background_color": "#ffffff",
   "theme_color": "#2563eb",
   "orientation": "portrait",
@@ -12,6 +13,35 @@
   "lang": "en",
   "dir": "ltr",
   "categories": ["education", "productivity"],
+  "launch_handler": {
+    "client_mode": "focus-existing"
+  },
+  "edge_side_panel": {
+    "preferred_width": 448
+  },
+  "protocol_handlers": [
+    {
+      "protocol": "web+hadalenglish",
+      "url": "/protocol-handler?target=%s"
+    }
+  ],
+  "share_target": {
+    "action": "/practice",
+    "method": "GET",
+    "params": {
+      "title": "shared_title",
+      "text": "shared_text",
+      "url": "shared_url"
+    }
+  },
+  "prefer_related_applications": false,
+  "related_applications": [
+    {
+      "platform": "play",
+      "url": "https://play.google.com/store/apps/details?id=com.hadalenglish.twa",
+      "id": "com.hadalenglish.twa"
+    }
+  ],
   "icons": [
     {
       "src": "/icon-192.png",
