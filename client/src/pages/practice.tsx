@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowLeft, Mic, Volume2, RotateCcw, BookOpen } from "lucide-react";
+import { ArrowLeft, Mic, Volume2, RotateCcw, BookOpen, Share2, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Header from "../components/header";
@@ -12,11 +12,25 @@ import PronunciationGuide from "../components/pronunciation-guide";
 import { useAppState } from "@/context/app-state";
 import { lessonsData } from "@/lib/lessons-data";
 
+// Populated when the OS "Share to..." menu sends text here — see
+// manifest.json `share_target`.
+function readSharedText(): string | null {
+  const params = new URLSearchParams(window.location.search);
+  const text = params.get("shared_text") || params.get("shared_title");
+  return text && text.trim().length > 0 ? text.trim() : null;
+}
+
 export default function Practice() {
   const [, setLocation] = useLocation();
   const { language, toggleLanguage } = useAppState();
   const [currentPracticeIndex, setCurrentPracticeIndex] = useState(0);
   const [practiceMode, setPracticeMode] = useState<'speaking' | 'vocabulary' | 'pronunciation'>('speaking');
+  const [sharedText, setSharedText] = useState<string | null>(() => readSharedText());
+
+  const dismissSharedText = () => {
+    setSharedText(null);
+    window.history.replaceState(null, "", "/practice");
+  };
 
   const allLessons = lessonsData;
   const currentLesson = allLessons[currentPracticeIndex];
@@ -93,6 +107,31 @@ export default function Practice() {
             <RotateCcw className="h-4 w-4 text-muted-foreground" />
           </Button>
         </div>
+
+        {/* Shared Text (from the OS "Share to..." menu) */}
+        {sharedText && (
+          <Card className="p-4 bg-green-50 border-green-200 space-y-3">
+            <div className="flex items-start justify-between">
+              <h4 className="text-sm font-semibold text-green-800 flex items-center">
+                <Share2 className="h-4 w-4 mr-2" />
+                {language === 'en' ? 'Shared text' : 'Qoraal la wadaagay'}
+              </h4>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={dismissSharedText}
+                className="p-1 h-7 w-7 text-green-700 hover:bg-green-100"
+              >
+                <X className="h-4 w-4" />
+              </Button>
+            </div>
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-lg font-medium text-green-900">{sharedText}</p>
+              <AudioPlayer text={sharedText} language="en" />
+            </div>
+            <VoiceRecorder targetText={sharedText} language={language} />
+          </Card>
+        )}
 
         {/* Practice Mode Selector */}
         <div className="grid grid-cols-3 gap-2 p-1 bg-muted rounded-lg">

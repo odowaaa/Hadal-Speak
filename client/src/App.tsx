@@ -9,6 +9,7 @@ import Practice from "./pages/practice";
 import Progress from "./pages/progress";
 import Profile from "./pages/profile";
 import PrivacyPolicy from "./pages/privacy-policy";
+import ProtocolHandler from "./pages/protocol-handler";
 import NotFound from "./pages/not-found";
 import NotificationReminder from "./components/notification-reminder";
 import { useLessonReminders } from "./hooks/use-lesson-reminders";
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/progress" component={Progress} />
       <Route path="/profile" component={Profile} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/protocol-handler" component={ProtocolHandler} />
       <Route component={NotFound} />
     </Switch>
   );
