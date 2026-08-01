@@ -33,9 +33,9 @@ export default function LessonProgressBar({
         />
       </div>
       
-      <div className="flex justify-between items-center">
-        <div className="flex space-x-1">
-          {Array.from({ length: Math.min(totalLessons, 10) }, (_, index) => {
+      <div className="flex flex-wrap items-center justify-between gap-y-2">
+        <div className="flex flex-wrap gap-1 min-w-0">
+          {Array.from({ length: Math.min(totalLessons, 7) }, (_, index) => {
             const lessonNumber = index + 1;
             const isCompleted = lessonNumber <= completedLessons;
             const isCurrent = lessonNumber === currentLesson;
@@ -64,12 +64,12 @@ export default function LessonProgressBar({
               </div>
             );
           })}
-          {totalLessons > 10 && (
-            <span className="text-xs text-muted-foreground self-center">+{totalLessons - 10}</span>
+          {totalLessons > 7 && (
+            <span className="text-xs text-muted-foreground self-center">+{totalLessons - 7}</span>
           )}
         </div>
-        
-        <div className="text-right">
+
+        <div className="text-right flex-shrink-0">
           <p className="text-lg font-bold text-foreground">{Math.round(progress)}%</p>
           <p className="text-xs text-muted-foreground">
             {language === 'en' ? 'Complete' : 'Dhammaan'}

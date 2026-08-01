@@ -97,35 +97,35 @@
   "screenshots": [
     {
       "src": "/screenshots/01-home.png",
-      "sizes": "1236x2745",
+      "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Track your study streak and progress across three levels"
     },
     {
       "src": "/screenshots/02-lesson.png",
-      "sizes": "1236x2745",
+      "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Bilingual English-Somali lessons with audio and key vocabulary"
     },
     {
       "src": "/screenshots/03-practice.png",
-      "sizes": "1236x2745",
+      "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Flip-card vocabulary practice for every lesson"
     },
     {
       "src": "/screenshots/04-progress.png",
-      "sizes": "1236x2745",
+      "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Streaks, quiz scores, and achievements to track your learning"
     },
     {
       "src": "/screenshots/05-home-dark.png",
-      "sizes": "1236x2745",
+      "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Full dark mode support"
