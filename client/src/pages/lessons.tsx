@@ -1,5 +1,5 @@
 import { useLocation } from "wouter";
-import { ArrowLeft, BookOpen, Check } from "lucide-react";
+import { ArrowLeft, BookOpen, Check, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Header from "../components/header";
@@ -9,7 +9,7 @@ import { getLessonsByLevel } from "@/lib/lessons-data";
 
 export default function Lessons() {
   const [, setLocation] = useLocation();
-  const { language, toggleLanguage, isLessonCompleted } = useAppState();
+  const { language, toggleLanguage, isLessonCompleted, isLessonUnlocked } = useAppState();
 
   const allLessons = [...getLessonsByLevel(1), ...getLessonsByLevel(2), ...getLessonsByLevel(3)];
 
@@ -70,50 +70,72 @@ export default function Lessons() {
 
         {/* Lessons List */}
         <div className="space-y-4">
-          {allLessons.map((lesson) => (
-            <Card key={lesson.id} className="p-4 shadow-sm border border-border">
-              <div className="flex items-start space-x-4">
-                <div className="flex-shrink-0">
-                  <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                    {isLessonCompleted(lesson.id) ? (
-                      <Check className="h-5 w-5 text-green-600" />
+          {allLessons.map((lesson) => {
+            const completed = isLessonCompleted(lesson.id);
+            const unlocked = isLessonUnlocked(lesson);
+            return (
+              <Card
+                key={lesson.id}
+                className={`p-4 shadow-sm border border-border ${!unlocked ? 'opacity-60' : ''}`}
+              >
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                      {completed ? (
+                        <Check className="h-5 w-5 text-green-600" />
+                      ) : unlocked ? (
+                        <BookOpen className="h-5 w-5 text-blue-600" />
+                      ) : (
+                        <Lock className="h-5 w-5 text-muted-foreground" />
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center justify-between mb-2">
+                      <h3 className="text-lg font-semibold text-foreground">{lesson.title}</h3>
+                      <span className={`text-xs px-2 py-1 rounded-full font-medium ${getLevelColor(lesson.level)}`}>
+                        {language === 'en' ? `Level ${lesson.level}` : `Heer ${lesson.level}`} - {getLevelName(lesson.level)}
+                      </span>
+                    </div>
+
+                    {unlocked ? (
+                      <>
+                        <p className="text-sm text-muted-foreground mb-2">{lesson.english}</p>
+                        <p className="text-sm text-cultural mb-3">{lesson.somali}</p>
+                      </>
                     ) : (
-                      <BookOpen className="h-5 w-5 text-blue-600" />
+                      <p className="text-sm text-muted-foreground mb-3">
+                        {language === 'en'
+                          ? `Complete lesson ${lesson.lessonNumber - 1} first to unlock this one`
+                          : `Marka hore dhammayso cashar ${lesson.lessonNumber - 1} si aad u furto kan`}
+                      </p>
                     )}
+
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs text-muted-foreground">
+                        {language === 'en' ? `Lesson ${lesson.lessonNumber}` : `Cashar ${lesson.lessonNumber}`}
+                      </span>
+
+                      <Button
+                        onClick={() => setLocation(`/lesson/${lesson.level}/${lesson.id}`)}
+                        size="sm"
+                        className="text-xs"
+                        disabled={!unlocked}
+                      >
+                        {!unlocked
+                          ? (language === 'en' ? 'Locked' : 'Xiran')
+                          : completed
+                          ? (language === 'en' ? 'Review' : 'Dib u eeg')
+                          : (language === 'en' ? 'Start' : 'Bilow')
+                        }
+                      </Button>
+                    </div>
                   </div>
                 </div>
-
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between mb-2">
-                    <h3 className="text-lg font-semibold text-foreground">{lesson.title}</h3>
-                    <span className={`text-xs px-2 py-1 rounded-full font-medium ${getLevelColor(lesson.level)}`}>
-                      {language === 'en' ? `Level ${lesson.level}` : `Heer ${lesson.level}`} - {getLevelName(lesson.level)}
-                    </span>
-                  </div>
-
-                  <p className="text-sm text-muted-foreground mb-2">{lesson.english}</p>
-                  <p className="text-sm text-cultural mb-3">{lesson.somali}</p>
-
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs text-muted-foreground">
-                      {language === 'en' ? `Lesson ${lesson.lessonNumber}` : `Cashar ${lesson.lessonNumber}`}
-                    </span>
-
-                    <Button
-                      onClick={() => setLocation(`/lesson/${lesson.level}/${lesson.id}`)}
-                      size="sm"
-                      className="text-xs"
-                    >
-                      {isLessonCompleted(lesson.id)
-                        ? (language === 'en' ? 'Review' : 'Dib u eeg')
-                        : (language === 'en' ? 'Start' : 'Bilow')
-                      }
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </Card>
-          ))}
+              </Card>
+            );
+          })}
         </div>
       </main>
 

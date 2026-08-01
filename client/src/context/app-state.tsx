@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import type { UserProgress } from "@shared/schema";
-import { lessonsData } from "@/lib/lessons-data";
+import type { Lesson, UserProgress } from "@shared/schema";
+import { lessonsData, getLessonsByLevel } from "@/lib/lessons-data";
 import * as progressStore from "@/lib/progress-store";
 import { defaultSettings, readSettings, writeSettings, type AppSettings, type Language } from "@/lib/settings-store";
 
@@ -14,6 +14,9 @@ interface AppState extends AppSettings {
 
   progress: UserProgress[];
   isLessonCompleted: (lessonId: string) => boolean;
+  isLevelUnlocked: (level: number) => boolean;
+  isLessonUnlocked: (lesson: Lesson) => boolean;
+  getResumeLesson: (level: number) => Lesson | undefined;
   completeLesson: (lessonId: string, quizScore?: number | null) => void;
   resetProgress: () => void;
 
@@ -116,6 +119,37 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     [progress]
   );
 
+  // Levels unlock progressively: level N requires every lesson in level N-1
+  // to be completed first. Lessons within a level unlock one at a time, in
+  // order, so learners always encounter them "one after the other" rather
+  // than being able to skip ahead to unfinished material.
+  const isLevelUnlocked = useCallback(
+    (level: number) => {
+      if (level <= 1) return true;
+      const previousLevelLessons = getLessonsByLevel(level - 1);
+      return previousLevelLessons.length > 0 && previousLevelLessons.every((l) => isLessonCompleted(l.id));
+    },
+    [isLessonCompleted]
+  );
+
+  const isLessonUnlocked = useCallback(
+    (lesson: Lesson) => {
+      if (!isLevelUnlocked(lesson.level)) return false;
+      if (lesson.lessonNumber <= 1) return true;
+      const previousLesson = getLessonsByLevel(lesson.level).find((l) => l.lessonNumber === lesson.lessonNumber - 1);
+      return previousLesson ? isLessonCompleted(previousLesson.id) : true;
+    },
+    [isLevelUnlocked, isLessonCompleted]
+  );
+
+  const getResumeLesson = useCallback(
+    (level: number) => {
+      const levelLessons = getLessonsByLevel(level);
+      return levelLessons.find((l) => !isLessonCompleted(l.id)) ?? levelLessons[levelLessons.length - 1];
+    },
+    [isLessonCompleted]
+  );
+
   const completeLesson = useCallback((lessonId: string, quizScore: number | null = null) => {
     progressStore.completeLesson(lessonId, quizScore);
     setProgress(progressStore.getAllProgress());
@@ -157,6 +191,9 @@ export function AppStateProvider({ children }: { children: ReactNode }) {
     toggleAutoPlay,
     progress,
     isLessonCompleted,
+    isLevelUnlocked,
+    isLessonUnlocked,
+    getResumeLesson,
     completeLesson,
     resetProgress,
     ...derived

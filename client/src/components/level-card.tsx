@@ -14,6 +14,7 @@ interface LevelCardProps {
   progressColor: string;
   badgeColor: string;
   isLocked: boolean;
+  lockedReason?: string;
   onSelect: () => void;
   language: string;
 }
@@ -30,6 +31,7 @@ export default function LevelCard({
   progressColor,
   badgeColor,
   isLocked,
+  lockedReason,
   onSelect,
   language
 }: LevelCardProps) {
@@ -62,12 +64,19 @@ export default function LevelCard({
             )}
           </div>
           <p className="text-sm text-muted-foreground mb-3">{description}</p>
-          <div className="flex items-center space-x-4 text-xs text-muted-foreground">
-            <span className="inline-flex items-center">
-              <Clock className="h-3 w-3 mr-1" />
-              {language === 'en' ? '5-15 min/lesson' : '5-15 daqiiqo/cashar'}
-            </span>
-          </div>
+          {isLocked && lockedReason ? (
+            <p className="text-xs text-muted-foreground mb-3 flex items-center">
+              <Lock className="h-3 w-3 mr-1 flex-shrink-0" />
+              {lockedReason}
+            </p>
+          ) : (
+            <div className="flex items-center space-x-4 text-xs text-muted-foreground">
+              <span className="inline-flex items-center">
+                <Clock className="h-3 w-3 mr-1" />
+                {language === 'en' ? '5-15 min/lesson' : '5-15 daqiiqo/cashar'}
+              </span>
+            </div>
+          )}
           <div className="mt-3 w-full bg-muted rounded-full h-1.5">
             <div 
               className={`${progressColor} h-1.5 rounded-full transition-all duration-300`}
