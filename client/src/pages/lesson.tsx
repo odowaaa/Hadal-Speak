@@ -1,5 +1,6 @@
+import { useEffect } from "react";
 import { useLocation, useParams } from "wouter";
-import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, Lock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Header from "../components/header";
 import LessonCard from "../components/lesson-card";
@@ -12,7 +13,7 @@ import { getQuizForLesson } from "@/lib/quiz-data";
 export default function LessonPage() {
   const params = useParams<{ level: string; lessonId: string }>();
   const [, setLocation] = useLocation();
-  const { language, toggleLanguage, isLessonCompleted, completeLesson } = useAppState();
+  const { language, toggleLanguage, isLessonCompleted, isLessonUnlocked, completeLesson } = useAppState();
 
   const level = parseInt(params.level || "1");
   const lessonId = params.lessonId || "";
@@ -23,11 +24,22 @@ export default function LessonPage() {
 
   const currentLessonIndex = levelLessons.findIndex((l) => l.id === lessonId);
   const isCompleted = isLessonCompleted(lessonId);
+  const unlocked = currentLesson ? isLessonUnlocked(currentLesson) : false;
+
+  // Guard against deep-linking (typed URL, old bookmark, etc.) straight into
+  // a lesson the learner hasn't reached yet in the sequential unlock order.
+  useEffect(() => {
+    if (currentLesson && !unlocked) {
+      setLocation("/lessons", { replace: true });
+    }
+  }, [currentLesson, unlocked, setLocation]);
+
+  const nextLesson = currentLessonIndex >= 0 ? levelLessons[currentLessonIndex + 1] : undefined;
+  const canGoNext = !!nextLesson && isLessonUnlocked(nextLesson);
 
   const handleNext = () => {
-    const nextIndex = currentLessonIndex + 1;
-    if (nextIndex < levelLessons.length) {
-      setLocation(`/lesson/${level}/${levelLessons[nextIndex].id}`);
+    if (nextLesson) {
+      setLocation(`/lesson/${level}/${nextLesson.id}`);
     } else {
       setLocation('/');
     }
@@ -50,6 +62,18 @@ export default function LessonPage() {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <p className="text-muted-foreground">
           {language === 'en' ? 'Lesson not found.' : 'Casharka lama helin.'}
+        </p>
+      </div>
+    );
+  }
+
+  if (!unlocked) {
+    // Briefly shown while the redirect effect above kicks in.
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center px-4">
+        <p className="text-muted-foreground flex items-center">
+          <Lock className="h-4 w-4 mr-2" />
+          {language === 'en' ? 'This lesson is locked.' : 'Casharkan waa xiran yahay.'}
         </p>
       </div>
     );
@@ -90,7 +114,17 @@ export default function LessonPage() {
           language={language}
         />
 
-        {/* Navigation */}
+        {/* Quiz Section */}
+        {quizQuestions.length > 0 && (
+          <Quiz
+            questions={quizQuestions}
+            onComplete={handleQuizComplete}
+            language={language}
+          />
+        )}
+
+        {/* Navigation - placed after the quiz so "Next" is reachable right
+            after finishing it, instead of requiring a scroll back up */}
         <div className="flex space-x-3 pt-4">
           <Button
             variant="outline"
@@ -103,21 +137,21 @@ export default function LessonPage() {
           </Button>
           <Button
             onClick={handleNext}
-            disabled={currentLessonIndex === levelLessons.length - 1}
+            disabled={!!nextLesson && !canGoNext}
             className="flex-1"
           >
-            {language === 'en' ? 'Next' : 'Xiga'}
+            {nextLesson
+              ? (language === 'en' ? 'Next' : 'Xiga')
+              : (language === 'en' ? 'Finish' : 'Dhammee')}
             <ChevronRight className="h-4 w-4 ml-2" />
           </Button>
         </div>
-
-        {/* Quiz Section */}
-        {quizQuestions.length > 0 && (
-          <Quiz
-            questions={quizQuestions}
-            onComplete={handleQuizComplete}
-            language={language}
-          />
+        {!!nextLesson && !canGoNext && (
+          <p className="text-xs text-center text-muted-foreground -mt-4">
+            {language === 'en'
+              ? 'Complete the quiz above to unlock the next lesson'
+              : 'Dhammayso imtixaanka kor ku yaal si aad u furto casharka xiga'}
+          </p>
         )}
       </main>
 

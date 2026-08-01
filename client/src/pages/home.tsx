@@ -14,6 +14,8 @@ export default function Home() {
     language,
     toggleLanguage,
     isLessonCompleted,
+    isLevelUnlocked,
+    getResumeLesson,
     completedLessonsCount,
     totalLessonsCount,
     streak,
@@ -35,9 +37,9 @@ export default function Home() {
   const level3Progress = getProgressForLevel(level3Lessons);
 
   const handleLevelSelect = (level: number) => {
-    const lessons = level === 1 ? level1Lessons : level === 2 ? level2Lessons : level3Lessons;
-    if (lessons.length > 0) {
-      setLocation(`/lesson/${level}/${lessons[0].id}`);
+    const resumeLesson = getResumeLesson(level);
+    if (resumeLesson) {
+      setLocation(`/lesson/${level}/${resumeLesson.id}`);
     }
   };
 
@@ -104,7 +106,8 @@ export default function Home() {
             iconColor="text-blue-600"
             progressColor="bg-blue-500"
             badgeColor="bg-blue-100 text-blue-700"
-            isLocked={level1Progress < 50}
+            isLocked={!isLevelUnlocked(2)}
+            lockedReason={language === 'en' ? 'Complete Level 1 to unlock' : 'Dhammayso Heerka 1 si aad u furto'}
             onSelect={() => handleLevelSelect(2)}
             language={language}
           />
@@ -121,7 +124,8 @@ export default function Home() {
             iconColor="text-purple-600"
             progressColor="bg-purple-500"
             badgeColor="bg-purple-100 text-purple-700"
-            isLocked={level2Progress < 50}
+            isLocked={!isLevelUnlocked(3)}
+            lockedReason={language === 'en' ? 'Complete Level 2 to unlock' : 'Dhammayso Heerka 2 si aad u furto'}
             onSelect={() => handleLevelSelect(3)}
             language={language}
           />
