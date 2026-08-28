@@ -1,10 +1,25 @@
 # Proposed Compound Wall & Access Layout — 2D Site Plan
 
-This folder contains a CAD-style 2D site plan converted from a hand-marked
-satellite/sketch reference image showing a proposed compound boundary wall
-around **Office MOG** and **House MOG**.
+This folder contains CAD-style 2D site plans converted from hand-marked
+reference images showing a proposed compound boundary wall around
+**Office MOG** and **House MOG**.
 
-## Files
+**Two versions exist, from two different reference sketches — they are not
+revisions of each other:**
+
+- **This folder (v1)** — from an undimensioned photo-mockup sketch (Main
+  Gate on the left, Emergency Doors, Back Gate for Truck at the bottom).
+  Everything is schematic/NTS since no dimensions were given.
+- **[`v2-dimensioned/`](v2-dimensioned/)** — from a second, dimensioned
+  hand-marked sketch (Front Main Gate at the bottom, Back Gate at the top,
+  House back door and Gate on the right; 14/18/30.4/4/30.5 m labelled).
+  This version is drawn **to true scale** for the labelled runs and is the
+  more authoritative of the two — see its own README for details and
+  open flags.
+
+If you're looking for the latest/most accurate drawing, use `v2-dimensioned/`.
+
+## Files (this folder, v1)
 
 | File | Format | Purpose |
 |---|---|---|
