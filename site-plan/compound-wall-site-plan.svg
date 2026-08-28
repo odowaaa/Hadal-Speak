@@ -1,0 +1,235 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 1360" font-family="Arial, Helvetica, sans-serif">
+<title>PROPOSED COMPOUND WALL &amp; ACCESS LAYOUT</title>
+
+<!-- ============ DEFS ============ -->
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L6,3 L0,6 Z" fill="#1f1f1f"/>
+  </marker>
+  <marker id="dimarrow" markerWidth="10" markerHeight="10" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+    <path d="M0,0 L6,3 L0,6 Z" fill="#444444"/>
+  </marker>
+</defs>
+
+<!-- ============ SHEET BACKGROUND ============ -->
+<rect x="0" y="0" width="1700" height="1360" fill="#ffffff"/>
+<rect x="10" y="10" width="1680" height="1340" fill="none" stroke="#000000" stroke-width="2"/>
+<rect x="18" y="18" width="1664" height="1324" fill="none" stroke="#000000" stroke-width="0.75"/>
+
+<!-- ============ SHEET TITLE ============ -->
+<text x="850" y="50" text-anchor="middle" font-size="26" font-weight="bold" letter-spacing="1">PROPOSED COMPOUND WALL &amp; ACCESS LAYOUT</text>
+<text x="850" y="75" text-anchor="middle" font-size="15" fill="#444444">2D SITE PLAN — OFFICE MOG &amp; HOUSE MOG (traced from marked-up reference sketch)</text>
+<line x1="40" y1="90" x2="1660" y2="90" stroke="#000000" stroke-width="1"/>
+
+<!-- ============ SITE PLAN GEOMETRY (transformed group) ============ -->
+<g transform="translate(-438.5,-61.9) scale(1.3)">
+  <!-- existing buildings (reference only) -->
+  <rect x="558" y="203" width="297" height="119" fill="#f7ecd0" stroke="none"/>
+  <path d="M558,203 L855,203 L855,322 L558,322 Z" fill="none" stroke="#d99a2b" stroke-width="2.5"/>
+  <rect x="830" y="395" width="175" height="120" fill="#f7ecd0" stroke="none"/>
+  <path d="M830,515 L830,395 L850,395 M874,395 L1005,395 L1005,515 L830,515" fill="none" stroke="#d99a2b" stroke-width="2.5"/>
+
+  <!-- boundary wall, 0.40m thick (shown to scale as double-line/filled plan) -->
+  <path d="M 932.0,173.0 L 932.0,215.0 L 937.0,215.0 L 937.0,220.0 L 955.0,220.0 L 955.0,270.0 L 960.0,270.0 L 960.0,275.0 L 1005.0,275.0 L 1005.0,375.0 L 1005.0,530.0 L 1005.0,535.0 L 1005.0,540.0 L 1010.0,540.0 L 1010.0,535.0 L 1015.0,535.0 L 1015.0,375.0 L 1015.0,270.0 L 1010.0,270.0 L 1010.0,265.0 L 965.0,265.0 L 965.0,215.0 L 960.0,215.0 L 960.0,210.0 L 942.0,210.0 L 942.0,168.0 L 937.0,168.0 L 937.0,163.0 L 915.0,163.0 L 915.0,173.0 L 932.0,173.0 Z" fill="#7a1a1a" stroke="#3d0a0a" stroke-width="1"/>
+    <path d="M 832.0,530.0 L 832.0,540.0 L 985.0,540.0 L 985.0,530.0 L 832.0,530.0 Z" fill="#7a1a1a" stroke="#3d0a0a" stroke-width="1"/>
+    <path d="M 445.0,168.0 L 440.0,168.0 L 440.0,335.0 L 450.0,335.0 L 450.0,173.0 L 895.0,173.0 L 895.0,163.0 L 445.0,163.0 L 445.0,168.0 Z" fill="#7a1a1a" stroke="#3d0a0a" stroke-width="1"/>
+    <path d="M 445.0,375.0 L 445.0,380.0 L 780.0,380.0 L 780.0,535.0 L 785.0,535.0 L 785.0,540.0 L 792.0,540.0 L 792.0,530.0 L 790.0,530.0 L 790.0,375.0 L 785.0,375.0 L 785.0,370.0 L 450.0,370.0 L 450.0,365.0 L 440.0,365.0 L 440.0,375.0 L 445.0,375.0 Z" fill="#7a1a1a" stroke="#3d0a0a" stroke-width="1"/>
+
+  <!-- door / gate opening symbols -->
+  <path d="M895.0,168.0 L895.0,188.0 A20.0,20.0 0 0 1 915.0,168.0" fill="none" stroke="#1f1f1f" stroke-width="1.2"/>
+    <path d="M445.0,335.0 L460.0,335.0 A15.0,15.0 0 0 1 445.0,350.0" fill="none" stroke="#1f1f1f" stroke-width="1.6"/>
+    <path d="M445.0,365.0 L460.0,365.0 A15.0,15.0 0 0 0 445.0,350.0" fill="none" stroke="#1f1f1f" stroke-width="1.6"/>
+    <path d="M792.0,535.0 L792.0,515.0 A20.0,20.0 0 0 1 812.0,535.0" fill="none" stroke="#1f1f1f" stroke-width="1.6"/>
+    <path d="M832.0,535.0 L832.0,515.0 A20.0,20.0 0 0 0 812.0,535.0" fill="none" stroke="#1f1f1f" stroke-width="1.6"/>
+    <path d="M985.0,535.0 L985.0,515.0 A20.0,20.0 0 0 1 1005.0,535.0" fill="none" stroke="#1f1f1f" stroke-width="1.2"/>
+    <path d="M850.0,395.0 L850.0,419.0 A24.0,24.0 0 0 1 874.0,395.0" fill="none" stroke="#1f1f1f" stroke-width="1.2"/>
+
+  <!-- building labels -->
+  <text x="706" y="240" text-anchor="middle" font-size="12" font-weight="bold">OFFICE MOG</text>
+  <text x="706" y="255" text-anchor="middle" font-size="7" fill="#666666">(existing — footprint per reference image)</text>
+  <text x="917" y="450" text-anchor="middle" font-size="12" font-weight="bold">HOUSE MOG</text>
+  <text x="917" y="463" text-anchor="middle" font-size="7" fill="#666666">(existing — footprint per reference image)</text>
+</g>
+
+<!-- ============ OVERALL DIMENSION LINES (TBD) ============ -->
+<line x1="133.5" y1="115" x2="881.0" y2="115" stroke="#555555" stroke-width="0.75" marker-start="url(#dimarrow)" marker-end="url(#dimarrow)"/>
+<line x1="133.5" y1="115" x2="133.5" y2="150.0" stroke="#aaaaaa" stroke-width="0.5"/>
+<line x1="881.0" y1="115" x2="881.0" y2="150.0" stroke="#aaaaaa" stroke-width="0.5"/>
+<text x="507.2" y="108" text-anchor="middle" font-size="12" fill="#333333">OVERALL WIDTH — TBD (FIELD SURVEY REQUIRED)</text>
+
+<line x1="926.0" y1="150.0" x2="926.0" y2="640.1" stroke="#555555" stroke-width="0.75" marker-start="url(#dimarrow)" marker-end="url(#dimarrow)"/>
+<line x1="926.0" y1="150.0" x2="881.0" y2="150.0" stroke="#aaaaaa" stroke-width="0.5"/>
+<line x1="926.0" y1="640.1" x2="881.0" y2="640.1" stroke="#aaaaaa" stroke-width="0.5"/>
+<text x="941.0" y="395.1" text-anchor="middle" font-size="12" fill="#333333" transform="rotate(-90 941.0 395.1)">OVERALL DEPTH — TBD (FIELD SURVEY REQUIRED)</text>
+
+<!-- ============ ACCESS POINT LEADER LINES + LABELS ============ -->
+<!-- Main Gate (left boundary) -->
+<line x1="42" y1="393.1" x2="136.0" y2="393.1" stroke="#1f1f1f" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="45" y="385.1" text-anchor="start" font-size="13" font-weight="bold">MAIN GATE</text>
+<text x="45" y="411.1" text-anchor="start" font-size="9" fill="#555555">vehicle + pedestrian entrance</text>
+
+<!-- Emergency Door (north / top) -->
+<line x1="738.0" y1="130" x2="738.0" y2="152.5" stroke="#1f1f1f" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="738.0" y="122" text-anchor="middle" font-size="13" font-weight="bold">EMERGENCY DOOR</text>
+
+<!-- House Entry Door -->
+<line x1="777.1" y1="406.6" x2="688.1" y2="448.6" stroke="#1f1f1f" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="782.1" y="401.6" text-anchor="start" font-size="12" font-weight="bold" fill="#8a5a00">HOUSE ENTRY DOOR</text>
+<text x="782.1" y="414.6" text-anchor="start" font-size="8" fill="#666666">(building door — north face of House MOG)</text>
+
+<!-- Back Gate - Truck Access -->
+<line x1="617.1" y1="705" x2="617.1" y2="637.6" stroke="#1f1f1f" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="617.1" y="722" text-anchor="middle" font-size="12" font-weight="bold">BACK GATE —</text>
+<text x="617.1" y="736" text-anchor="middle" font-size="12" font-weight="bold">TRUCK ACCESS</text>
+
+<!-- Emergency Door (south / lower-right) -->
+<line x1="855.0" y1="705" x2="855.0" y2="637.6" stroke="#1f1f1f" stroke-width="1" marker-end="url(#arrow)"/>
+<text x="855.0" y="722" text-anchor="middle" font-size="13" font-weight="bold">EMERGENCY DOOR</text>
+
+<!-- ============ NORTH ARROW ============ -->
+<g transform="translate(945,150)">
+  <circle cx="0" cy="0" r="30" fill="#ffffff" stroke="#000000" stroke-width="1.2"/>
+  <path d="M0,-24 L8,10 L0,2 L-8,10 Z" fill="#1f1f1f"/>
+  <text x="0" y="-30" text-anchor="middle" font-size="14" font-weight="bold">N</text>
+</g>
+
+<!-- ============ LEGEND ============ -->
+<g>
+  <rect x="1040" y="120" width="620" height="300" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <rect x="1040" y="120" width="620" height="28" fill="#eeeeee" stroke="#000000" stroke-width="1"/>
+  <text x="1350" y="140" text-anchor="middle" font-size="14" font-weight="bold" letter-spacing="1">LEGEND</text>
+
+  <rect x="1060" y="162" width="34" height="14" fill="#7a1a1a" stroke="#3d0a0a"/>
+  <text x="1105" y="174" font-size="12">Proposed boundary wall — 0.40 m thick / 2.80 m high</text>
+
+  <path d="M1060,205 L1060,191 A14,14 0 0 1 1074,205" fill="none" stroke="#1f1f1f" stroke-width="1.6"/>
+  <path d="M1088,205 L1088,191 A14,14 0 0 0 1074,205" fill="none" stroke="#1f1f1f" stroke-width="1.6"/>
+  <text x="1105" y="209" font-size="12">Vehicle gate (Main Gate / Truck Gate) — double-leaf</text>
+
+  <path d="M1060,239 L1060,225 A14,14 0 0 1 1074,239" fill="none" stroke="#1f1f1f" stroke-width="1.2"/>
+  <text x="1105" y="243" font-size="12">Pedestrian emergency door (perimeter wall)</text>
+
+  <path d="M1060,273 L1060,259 A14,14 0 0 1 1074,273" fill="none" stroke="#8a5a00" stroke-width="1.2"/>
+  <text x="1105" y="277" font-size="12">Building entrance door (House Entry Door)</text>
+
+  <rect x="1060" y="291" width="34" height="20" fill="#f7ecd0" stroke="#d99a2b" stroke-width="2"/>
+  <text x="1105" y="305" font-size="12">Existing building (reference footprint — Office MOG / House MOG)</text>
+
+  <line x1="1060" y1="330" x2="1094" y2="330" stroke="#7a1a1a" stroke-width="3"/>
+  <text x="1105" y="334" font-size="12">Site / compound boundary (centreline of wall)</text>
+
+  <circle cx="1075" cy="360" r="12" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <path d="M1075,349 L1080,368 L1075,363 L1070,368 Z" fill="#1f1f1f" transform="scale(0.5) translate(1075,360)"/>
+  <text x="1105" y="364" font-size="12">North arrow</text>
+
+  <text x="1060" y="405" font-size="10.5" fill="#555555">Dimension lines shown where no survey figure is available are labelled "TBD".</text>
+</g>
+
+<!-- ============ FIELD MEASUREMENTS / TBD ============ -->
+<g>
+  <rect x="1040" y="440" width="620" height="270" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <rect x="1040" y="440" width="620" height="28" fill="#eeeeee" stroke="#000000" stroke-width="1"/>
+  <text x="1350" y="460" text-anchor="middle" font-size="14" font-weight="bold" letter-spacing="1">FIELD MEASUREMENTS / TBD</text>
+  <text x="1060" y="486" font-size="11.5">No dimensions were supplied with the reference sketch. The following</text>
+  <text x="1060" y="502" font-size="11.5">must be confirmed by site survey before construction:</text>
+  <g font-size="12">
+    <text x="1065" y="528">•  Overall site dimensions ......................................... TBD</text>
+    <text x="1065" y="552">•  Main gate width ......................................................... TBD</text>
+    <text x="1065" y="576">•  Truck gate width ......................................................... TBD</text>
+    <text x="1065" y="600">•  Emergency door widths (all) ................................. TBD</text>
+    <text x="1065" y="624">•  Building-to-wall setbacks ....................................... TBD</text>
+    <text x="1065" y="648">•  Office MOG building dimensions ........................... TBD</text>
+    <text x="1065" y="672">•  House MOG building dimensions ............................ TBD</text>
+    <text x="1065" y="696">•  Wall corner/bend coordinates (for setting-out) ...... TBD</text>
+  </g>
+</g>
+
+<!-- ============ TITLE BLOCK ============ -->
+<g>
+  <rect x="1040" y="1010" width="620" height="330" fill="#ffffff" stroke="#000000" stroke-width="1.5"/>
+  <text x="1350" y="1042" text-anchor="middle" font-size="15" font-weight="bold">PROPOSED COMPOUND WALL &amp; ACCESS LAYOUT</text>
+  <text x="1350" y="1062" text-anchor="middle" font-size="11.5" fill="#444444">2D SITE PLAN — OFFICE MOG &amp; HOUSE MOG</text>
+  <line x1="1040" y1="1075" x2="1660" y2="1075" stroke="#000000" stroke-width="1"/>
+
+  <line x1="1400" y1="1075" x2="1400" y2="1330" stroke="#000000" stroke-width="0.75"/>
+
+  <text x="1055" y="1100" font-size="11.5" font-weight="bold">Wall thickness:</text>
+  <text x="1200" y="1100" font-size="11.5">0.40 m</text>
+  <text x="1055" y="1122" font-size="11.5" font-weight="bold">Wall height:</text>
+  <text x="1200" y="1122" font-size="11.5">2.80 m</text>
+  <text x="1055" y="1144" font-size="11.5" font-weight="bold">Scale:</text>
+  <text x="1200" y="1144" font-size="11.5">NTS — NOT TO SCALE</text>
+  <text x="1055" y="1166" font-size="11.5" font-weight="bold">Status:</text>
+  <text x="1200" y="1166" font-size="11.5" fill="#b02a2a">CONCEPT / FOR REVIEW</text>
+  <text x="1055" y="1188" font-size="11.5" font-weight="bold">Basis:</text>
+  <text x="1055" y="1206" font-size="10.5">Marked-up reference sketch</text>
+
+  <text x="1415" y="1100" font-size="11.5" font-weight="bold">Date:</text>
+  <text x="1515" y="1100" font-size="11.5">2026-08-28</text>
+  <text x="1415" y="1122" font-size="11.5" font-weight="bold">Drawing No.:</text>
+  <text x="1515" y="1122" font-size="11.5">SP-001</text>
+  <text x="1415" y="1144" font-size="11.5" font-weight="bold">Revision:</text>
+  <text x="1515" y="1144" font-size="11.5">A — Concept</text>
+  <text x="1415" y="1166" font-size="11.5" font-weight="bold">Drawn:</text>
+  <text x="1515" y="1166" font-size="11.5">Claude (AI-assisted)</text>
+  <text x="1415" y="1188" font-size="11.5" font-weight="bold">Format:</text>
+  <text x="1515" y="1188" font-size="11.5">SVG (vector)</text>
+
+  <line x1="1040" y1="1220" x2="1660" y2="1220" stroke="#000000" stroke-width="0.75"/>
+  <text x="1055" y="1240" font-size="10.5" fill="#555555">This drawing converts a hand-marked reference image into a 2D vector plan.</text>
+  <text x="1055" y="1256" font-size="10.5" fill="#555555">Wall geometry, gate/door locations and building footprints follow the</text>
+  <text x="1055" y="1272" font-size="10.5" fill="#555555">reference sketch; no dimensions were invented. Field survey required</text>
+  <text x="1055" y="1288" font-size="10.5" fill="#555555">before construction — see FIELD MEASUREMENTS / TBD panel.</text>
+</g>
+
+<!-- ============ GENERAL NOTES ============ -->
+<g>
+  <rect x="40" y="770" width="600" height="330" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <rect x="40" y="770" width="600" height="26" fill="#eeeeee" stroke="#000000" stroke-width="1"/>
+  <text x="340" y="789" text-anchor="middle" font-size="13" font-weight="bold" letter-spacing="1">GENERAL NOTES</text>
+  <g font-size="11.5">
+    <text x="55" y="818">1.  Proposed boundary wall thickness: 0.40 m.</text>
+    <text x="55" y="840">2.  Proposed boundary wall height: 2.80 m.</text>
+    <text x="55" y="862">3.  Layout geometry follows the supplied reference image; every bend,</text>
+    <text x="70" y="882">     offset and opening in the marked-up sketch has been preserved.</text>
+    <text x="55" y="904">4.  Existing buildings (Office MOG, House MOG) are shown for reference</text>
+    <text x="70" y="924">     only; footprints are not redesigned.</text>
+    <text x="55" y="946">5.  Final construction dimensions must be verified by site survey.</text>
+    <text x="55" y="968">6.  Gate and door widths must be confirmed before construction.</text>
+    <text x="55" y="990">7.  Do not scale this drawing — no surveyed dimensions were supplied.</text>
+    <text x="55" y="1012">8.  This is a 2D planning/layout drawing; it must be field-verified</text>
+    <text x="70" y="1032">     before construction.</text>
+    <text x="55" y="1058">9.  Drawing is oriented to match the reference image (see North arrow);</text>
+    <text x="70" y="1078">     true north to be confirmed on site.</text>
+  </g>
+</g>
+
+<!-- ============ ACCESS POINTS SCHEDULE ============ -->
+<g>
+  <rect x="660" y="770" width="1000" height="230" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <rect x="660" y="770" width="1000" height="26" fill="#eeeeee" stroke="#000000" stroke-width="1"/>
+  <text x="1160" y="789" text-anchor="middle" font-size="13" font-weight="bold" letter-spacing="1">ACCESS POINTS SCHEDULE</text>
+
+  <!-- table header -->
+  <line x1="660" y1="820" x2="1660" y2="820" stroke="#000000" stroke-width="0.75"/>
+  <text x="675" y="814" font-size="11" font-weight="bold">#</text>
+  <text x="705" y="814" font-size="11" font-weight="bold">DESIGNATION</text>
+  <text x="960" y="814" font-size="11" font-weight="bold">TYPE</text>
+  <text x="1130" y="814" font-size="11" font-weight="bold">LOCATION (per reference image)</text>
+  <line x1="695" y1="796" x2="695" y2="990" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="950" y1="796" x2="950" y2="990" stroke="#cccccc" stroke-width="0.5"/>
+  <line x1="1120" y1="796" x2="1120" y2="990" stroke="#cccccc" stroke-width="0.5"/>
+
+  <g font-size="11">
+    <text x="675" y="838">1</text><text x="705" y="838">MAIN GATE</text><text x="960" y="838">Perimeter vehicle/ped. gate</text><text x="1130" y="838">Left (west) boundary wall, mid-lower section</text>
+    <text x="675" y="860">2</text><text x="705" y="860">EMERGENCY DOOR</text><text x="960" y="860">Perimeter pedestrian door</text><text x="1130" y="860">Upper/right (north) boundary wall</text>
+    <text x="675" y="882">3</text><text x="705" y="882">BACK GATE — TRUCK ACCESS</text><text x="960" y="882">Perimeter vehicle gate</text><text x="1130" y="882">Lower/central boundary wall (office↔house transition)</text>
+    <text x="675" y="904">4</text><text x="705" y="904">EMERGENCY DOOR</text><text x="960" y="904">Perimeter pedestrian door</text><text x="1130" y="904">Lower/right boundary wall, House MOG compound</text>
+    <text x="675" y="926">5</text><text x="705" y="926">HOUSE ENTRY DOOR</text><text x="960" y="926">Building entrance door</text><text x="1130" y="926">North face of House MOG building (not the wall)</text>
+  </g>
+  <line x1="660" y1="936" x2="1660" y2="936" stroke="#000000" stroke-width="0.75"/>
+  <text x="675" y="956" font-size="10" fill="#555555">Note: item 5 is a building door and is independent of the four perimeter</text>
+  <text x="675" y="972" font-size="10" fill="#555555">wall gates/doors (items 1–4). No access point has been relocated, merged, or invented.</text>
+</g>
+
+</svg>
